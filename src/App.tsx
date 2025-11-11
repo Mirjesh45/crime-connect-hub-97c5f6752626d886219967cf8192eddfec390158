@@ -1,3 +1,4 @@
+// src/App.tsx
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -8,7 +9,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { CrimeRecordsView } from "@/components/views/CrimeRecordsView";
-import { CrimeDetailsPage } from "./pages/CrimeDetailsPage";
+import CrimeDetailsPage from "./pages/CrimeDetailsPage"; // ✅ fixed import
 import { CrimeRecordsProvider } from "@/context/CrimeRecordsContext";
 
 const queryClient = new QueryClient();
@@ -21,9 +22,10 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
+            {/* Login */}
             <Route path="/login" element={<Login />} />
 
-            {/* Dashboard or main page */}
+            {/* Dashboard */}
             <Route
               path="/dashboard"
               element={
@@ -33,7 +35,7 @@ const App = () => (
               }
             />
 
-            {/* Crime Records Table */}
+            {/* Crime Records */}
             <Route
               path="/incidents"
               element={
@@ -43,7 +45,7 @@ const App = () => (
               }
             />
 
-            {/* Crime Details Page */}
+            {/* Crime Details */}
             <Route
               path="/incidents/:id"
               element={
@@ -53,10 +55,10 @@ const App = () => (
               }
             />
 
-            {/* Root redirects to login */}
+            {/* Root → login */}
             <Route path="/" element={<Navigate to="/login" replace />} />
 
-            {/* Catch-all 404 */}
+            {/* 404 */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

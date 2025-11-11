@@ -1,5 +1,6 @@
 import DashboardView from "@/components/views/DashboardView";
-import {CrimeRecordsView} from "@/components/views/CrimeRecordsView";
+import {CrimeRecordsView} from "../components/views/CrimeRecordsView";
+
 import DataEntryView from "@/components/views/DataEntryView";
 import AlertsView from "@/components/views/AlertsView";
 import {SearchView} from "@/components/views/SearchView";
